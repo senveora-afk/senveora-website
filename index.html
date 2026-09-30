@@ -74,7 +74,6 @@ button{font:inherit;color:inherit;cursor:pointer}
 .container{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
 section{position:relative}
 main{overflow-x:clip}
-main>section:not(:first-child){content-visibility:auto;contain-intrinsic-size:auto 900px}
 .split>*,.grid-2>*,.grid-3>*,.grid-4>*,.hero-grid>*,.contact-grid>*{min-width:0}
 .section{padding:120px 0}
 .section-sm{padding:80px 0}
@@ -581,7 +580,7 @@ body:not(.spa) .page{display:block;animation:none}
 .js-off [data-process] .step .badge{opacity:1;filter:none}
 
 /* CTA zooms in with scroll */
-[data-scrub]{transform:scale(var(--s,1));will-change:transform}
+[data-scrub]{transform:scale(var(--s,1))}
 
 @media (max-width:880px){
   .stack-card{grid-template-columns:1fr;padding:30px;gap:26px;top:calc(90px + var(--i) * 16px);min-height:0}
@@ -608,8 +607,14 @@ body:not(.spa) .page{display:block;animation:none}
 .offscreen,.offscreen *,.offscreen *::before,.offscreen *::after{animation-play-state:paused!important}
 
 /* ---------- Responsive ---------- */
-@media (max-width:1024px){
+@media (max-width:1180px){
+  .float-card.fc2{right:0;top:4%}
+  .float-card.fc1{left:0}
+}
+@media (max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:70px}
+}
+@media (max-width:1024px){
   .hero{min-height:auto}
   .orbit{max-width:440px}
   .grid-4{grid-template-columns:repeat(2,1fr)}
@@ -726,7 +731,6 @@ body:not(.spa) .page{display:block;animation:none}
       </div>
     </div>
   </div>
-  <a class="scroll-hint" href="#story" aria-label="Scroll down"><span class="mouse"><i></i></span>Scroll to explore</a>
 </section>
 
 <!-- ===================== TECH MARQUEE ===================== -->
@@ -737,12 +741,6 @@ body:not(.spa) .page{display:block;animation:none}
       <span class="tech"><b></b>Python</span><span class="tech"><b></b>OpenAI</span><span class="tech"><b></b>TensorFlow</span><span class="tech"><b></b>Power BI</span><span class="tech"><b></b>AWS</span><span class="tech"><b></b>Microsoft Azure</span><span class="tech"><b></b>Google Cloud</span><span class="tech"><b></b>Docker</span><span class="tech"><b></b>Kubernetes</span><span class="tech"><b></b>Terraform</span><span class="tech"><b></b>React</span><span class="tech"><b></b>Next.js</span><span class="tech"><b></b>Node.js</span><span class="tech"><b></b>PostgreSQL</span><span class="tech"><b></b>Odoo</span><span class="tech"><b></b>ERPNext</span><span class="tech"><b></b>WordPress</span><span class="tech"><b></b>GitHub Actions</span><span class="tech"><b></b>Python</span><span class="tech"><b></b>OpenAI</span><span class="tech"><b></b>TensorFlow</span><span class="tech"><b></b>Power BI</span><span class="tech"><b></b>AWS</span><span class="tech"><b></b>Microsoft Azure</span><span class="tech"><b></b>Google Cloud</span><span class="tech"><b></b>Docker</span><span class="tech"><b></b>Kubernetes</span><span class="tech"><b></b>Terraform</span><span class="tech"><b></b>React</span><span class="tech"><b></b>Next.js</span><span class="tech"><b></b>Node.js</span><span class="tech"><b></b>PostgreSQL</span><span class="tech"><b></b>Odoo</span><span class="tech"><b></b>ERPNext</span><span class="tech"><b></b>WordPress</span><span class="tech"><b></b>GitHub Actions</span>
     </div>
   </div>
-</div>
-
-<!-- ===================== SCROLL TEXT ===================== -->
-<div class="big-type" id="story" aria-hidden="true">
-  <div class="big-line" data-hscroll="-1">Simplify Operations <em>·</em> Automate What Matters <em>·</em> Grow Smarter <em>·</em> Simplify Operations <em>·</em></div>
-  <div class="big-line outline" data-hscroll="1">AI &amp; Data <em>·</em> Cloud &amp; DevOps <em>·</em> Websites <em>·</em> ERP <em>·</em> AI &amp; Data <em>·</em> Cloud &amp; DevOps <em>·</em></div>
 </div>
 
 <!-- ===================== PILLARS ===================== -->
@@ -776,97 +774,51 @@ body:not(.spa) .page{display:block;animation:none}
   </div>
 </section>
 
-<!-- ===================== SERVICES (stacking cards) ===================== -->
-<section class="section no-cv" style="padding-top:0">
+<!-- ===================== SERVICES ===================== -->
+<section class="section" style="padding-top:0">
   <div class="container">
     <div class="section-head center reveal">
       <span class="kicker">Our services</span>
       <h2 data-split>Three practices. <span class="grad-text">One partner.</span></h2>
       <p class="lead">From your first website to enterprise-wide ERP and AI, we design, build and run the technology behind your growth.</p>
     </div>
-    <div class="stack">
-      <article class="stack-card" style="--i:0">
-        <div class="stack-body">
-          <span class="stack-num">01</span>
-          <div class="icon-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
-          <h3>AI &amp; Data Analytics</h3>
-          <p>Turn your data into decisions with intelligent automation, predictive models and dashboards your team will actually use.</p>
-          <ul class="checks">
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>AI assistants &amp; chatbots</li>
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Predictive analytics &amp; forecasting</li>
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>BI dashboards &amp; reporting</li>
-          </ul>
-          <a class="link-arrow" href="/services">Explore AI &amp; Data <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-        <div class="stack-visual" aria-hidden="true">
-          <div class="win-bar"><i></i><i></i><i></i></div>
-          <div class="v-title">Business insights</div><div class="v-sub">Revenue forecast · AI model</div>
-          <div class="bars sv-bars"><span style="height:38%"></span><span style="height:52%"></span><span style="height:46%"></span><span style="height:64%"></span><span style="height:58%"></span><span style="height:76%"></span><span style="height:70%"></span><span style="height:92%"></span></div>
-        </div>
+    <div class="grid-3">
+      <article class="card spot lift service-card reveal">
+        <span class="num">01</span>
+        <div class="icon-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+        <h3>AI &amp; Data Analytics</h3>
+        <p>Turn your data into decisions with intelligent automation, predictive models and dashboards your team will actually use.</p>
+        <ul class="checks">
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>AI assistants &amp; chatbots</li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Predictive analytics &amp; forecasting</li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>BI dashboards &amp; reporting</li>
+        </ul>
+        <a class="link-arrow" href="/services">Learn more <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
-      <article class="stack-card" style="--i:1">
-        <div class="stack-body">
-          <span class="stack-num">02</span>
-          <div class="icon-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H7a5 5 0 1 1 1.02-9.9A6 6 0 0 1 19.5 11a4 4 0 0 1-2 8z"/></svg></div>
-          <h3>Cloud &amp; DevOps</h3>
-          <p>Secure, scalable cloud infrastructure with automated pipelines, so you ship faster and sleep better.</p>
-          <ul class="checks">
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cloud migration (AWS · Azure · GCP)</li>
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>CI/CD, containers &amp; Kubernetes</li>
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Monitoring, security &amp; cost control</li>
-          </ul>
-          <a class="link-arrow" href="/services">Explore Cloud &amp; DevOps <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-        <div class="stack-visual" aria-hidden="true">
-          <div class="win-bar"><i></i><i></i><i></i></div>
-          <div class="v-title">Deployment pipeline</div><div class="v-sub">main → production</div>
-          <div class="pipe">
-            <span class="pn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg><b>Code</b></span><span class="pl"></span>
-            <span class="pn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><b>Test</b></span><span class="pl"></span>
-            <span class="pn hl"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4z"/></svg><b>Build</b></span><span class="pl"></span>
-            <span class="pn"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H7a5 5 0 1 1 1.02-9.9A6 6 0 0 1 19.5 11a4 4 0 0 1-2 8z"/></svg><b>Deploy</b></span>
-          </div>
-          <div class="bar-track" style="margin-top:26px"><span></span></div>
-        </div>
+      <article class="card spot lift service-card reveal" style="--d:.1s">
+        <span class="num">02</span>
+        <div class="icon-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H7a5 5 0 1 1 1.02-9.9A6 6 0 0 1 19.5 11a4 4 0 0 1-2 8z"/></svg></div>
+        <h3>Cloud &amp; DevOps</h3>
+        <p>Secure, scalable cloud infrastructure with automated pipelines, so you ship faster and sleep better.</p>
+        <ul class="checks">
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cloud migration (AWS · Azure · GCP)</li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>CI/CD, containers &amp; Kubernetes</li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Monitoring, security &amp; cost control</li>
+        </ul>
+        <a class="link-arrow" href="/services">Learn more <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
-      <article class="stack-card" style="--i:2">
-        <div class="stack-body">
-          <span class="stack-num">03</span>
-          <div class="icon-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-          <h3>Website &amp; ERP</h3>
-          <p>High-performance websites and ERP systems that connect sales, inventory, finance and people in one place.</p>
-          <ul class="checks">
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Corporate sites, web apps &amp; e-commerce</li>
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>ERP implementation &amp; customisation</li>
-            <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Integrations &amp; data migration</li>
-          </ul>
-          <a class="link-arrow" href="/services">Explore Website &amp; ERP <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-        <div class="stack-visual" aria-hidden="true">
-          <div class="browser">
-            <div class="url"><span>erp.yourcompany.com</span></div>
-            <div class="bd">
-              <div class="side-sk"><div class="sk g"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
-              <div class="main-sk">
-                <div class="erp-row"><div class="sk g">Sales<b>Orders</b></div><div class="sk">Stock<b>Items</b></div><div class="sk">Finance<b>Bills</b></div></div>
-                <div class="table-sk"><div class="sk"></div><div class="sk" style="width:86%"></div><div class="sk" style="width:92%"></div><div class="sk" style="width:70%"></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <article class="card spot lift service-card reveal" style="--d:.2s">
+        <span class="num">03</span>
+        <div class="icon-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>Website &amp; ERP</h3>
+        <p>High-performance websites and ERP systems that connect sales, inventory, finance and people in one place.</p>
+        <ul class="checks">
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Corporate sites, web apps &amp; e-commerce</li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>ERP implementation &amp; customisation</li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Integrations &amp; data migration</li>
+        </ul>
+        <a class="link-arrow" href="/services">Learn more <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== STATS ===================== -->
-<section class="section-sm stats-sec">
-  <div class="container">
-    <div class="stats">
-      <div class="stat reveal"><b><span data-count="3">0</span></b><span>Core practices under one roof</span></div>
-      <div class="stat reveal" style="--d:.08s"><b><span data-count="4">0</span></b><span>Clear stages from idea to launch</span></div>
-      <div class="stat reveal" style="--d:.16s"><b><span data-count="100">0</span>%</b><span>Of the code &amp; data is yours</span></div>
-      <div class="stat reveal" style="--d:.24s"><b><span data-count="1">0</span></b><span>Partner accountable end to end</span></div>
     </div>
   </div>
 </section>
@@ -1247,7 +1199,7 @@ body:not(.spa) .page{display:block;animation:none}
     scrubs.forEach(function(el){
       var r=el.getBoundingClientRect(); if(!r.height) return;
       var p=clamp((vh-r.top)/(vh*0.7),0,1);
-      el.style.setProperty("--s",(0.86+p*0.14).toFixed(4));
+      el.style.setProperty("--s",(0.95+p*0.05).toFixed(4));
     });
   }
   function requestFrame(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } }
