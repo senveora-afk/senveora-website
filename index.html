@@ -493,7 +493,7 @@ p{margin:0;color:var(--muted)}
 @keyframes waring{from{transform:scale(1);opacity:.8}to{transform:scale(1.6);opacity:0}}
 
 /* ---------- Reveal ---------- */
-.reveal{opacity:0;transform:translate3d(0,46px,0) scale(.985);transition:opacity 1.1s var(--ease-out),transform 1.4s var(--ease-out);transition-delay:var(--d,0s)}
+.reveal{opacity:0;transform:translate3d(0,24px,0);transition:opacity .6s var(--ease-out),transform .7s var(--ease-out);transition-delay:calc(var(--d,0s) * .6)}
 .reveal.in{opacity:1;transform:none}
 .js-off .reveal{opacity:1;transform:none}
 
@@ -520,9 +520,9 @@ body:not(.spa) .page{display:block;animation:none}
 /* Hero entrance */
 .hero .lead,.hero .btn-row,.hero .pillars,.hero .eyebrow{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .hero.hero-in .eyebrow{opacity:1;transform:none;transition-delay:.05s}
-.hero.hero-in .lead{opacity:1;transform:none;transition-delay:.55s}
-.hero.hero-in .btn-row{opacity:1;transform:none;transition-delay:.7s}
-.hero.hero-in .pillars{opacity:1;transform:none;transition-delay:.85s}
+.hero.hero-in .lead{opacity:1;transform:none;transition-delay:.25s}
+.hero.hero-in .btn-row{opacity:1;transform:none;transition-delay:.35s}
+.hero.hero-in .pillars{opacity:1;transform:none;transition-delay:.45s}
 .js-off .hero .lead,.js-off .hero .btn-row,.js-off .hero .pillars,.js-off .hero .eyebrow{opacity:1;transform:none}
 
 [data-parallax]{will-change:transform}
@@ -628,23 +628,23 @@ main,.footer{position:relative;z-index:1}
 /* Magnetic buttons + 3D tilt cards */
 .magnetic{transition:transform .5s var(--ease-out),box-shadow .35s var(--ease),background .35s}
 .magnetic.is-mag{transition:transform .15s linear,box-shadow .35s var(--ease),background .35s}
-.tilt{transform-style:preserve-3d;transition:transform .7s var(--ease-out),border-color .4s}
+.tilt{transition:transform .45s var(--ease-out),border-color .3s}
 .tilt.is-tilt{transition:transform .12s linear,border-color .4s}
 .tilt .glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;
   background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.07) 45%,transparent 60%);background-size:250% 250%;background-position:var(--gx,50%) var(--gy,50%)}
 .tilt.is-tilt .glare{opacity:1}
 
 /* Image reveal: frame opens, image settles */
-.shot img{transform:scale(1.12);transition:transform 1.6s var(--ease-out)}
+.shot img{transform:scale(1.06);transition:transform .9s var(--ease-out)}
 .reveal.in .shot img{transform:scale(1)}
 .work-card:hover .shot img,.shot-lg:hover img{transform:scale(1.04)}
 .shot{clip-path:inset(0 0 0 0 round 16px)}
 
 /* Hero entrance: calmer, longer */
-.hero .lead,.hero .btn-row,.hero .pillars,.hero .eyebrow{transition:opacity 1.2s var(--ease-out),transform 1.4s var(--ease-out)}
-.hero .orbit{opacity:0;transform:scale(.92);transition:opacity 1.6s var(--ease-out) .4s,transform 1.8s var(--ease-out) .4s}
+.hero .lead,.hero .btn-row,.hero .pillars,.hero .eyebrow{transition:opacity .7s var(--ease-out),transform .8s var(--ease-out)}
+.hero .orbit{opacity:0;transform:scale(.96);transition:opacity .8s var(--ease-out) .15s,transform .9s var(--ease-out) .15s}
 .hero.hero-in .orbit{opacity:1;transform:none}
-[data-split] .w>span{transform:translate3d(0,105%,0);transition:transform 1.2s var(--ease-out);transition-delay:calc(var(--wi,0) * 45ms + var(--wd,0s))}
+[data-split] .w>span{transform:translate3d(0,105%,0);transition:transform .75s var(--ease-out);transition-delay:calc(var(--wi,0) * 28ms + var(--wd,0s))}
 
 html.smooth{scroll-behavior:auto}
 @media (hover:none){.cursor-glow{display:none}}
@@ -765,7 +765,7 @@ html.smooth{scroll-behavior:auto}
       </div>
     </div>
 
-    <div class="reveal" style="--d:.2s" data-parallax="-0.12">
+    <div class="reveal" style="--d:.2s">
       <div class="orbit" aria-hidden="true">
         <div class="orbit-glow"></div>
         <div class="ring r3"><span class="chip"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg> Web</span><span class="chip bottom"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg> ERP</span></div>
@@ -1203,16 +1203,7 @@ html.smooth{scroll-behavior:auto}
     }); });
   }
 
-  /* Intro curtain: logo mark + line, once per session, home only */
-  var seen=false; try{ seen=sessionStorage.getItem("sv-intro")==="1"; sessionStorage.setItem("sv-intro","1"); }catch(_){}
-  if(hero && !seen && !reduce && !body.classList.contains("spa")){
-    var intro=doc.createElement("div"); intro.className="intro"; intro.setAttribute("aria-hidden","true");
-    var mark=doc.querySelector(".core img");
-    intro.innerHTML='<img alt="" src="'+(mark?mark.getAttribute("src"):"")+'"><span class="intro-line"></span>';
-    body.appendChild(intro);
-    setTimeout(function(){ intro.classList.add("done"); setTimeout(startHero,250); }, 1300);
-    setTimeout(function(){ if(intro.parentNode) intro.parentNode.removeChild(intro); }, 2600);
-  } else startHero();
+  startHero();
 
   /* 3. Count-up numbers */
   var cio=("IntersectionObserver" in window)?new IntersectionObserver(function(es){
@@ -1269,44 +1260,7 @@ html.smooth{scroll-behavior:auto}
   /* =================== Premium interaction layer =================== */
   var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  /* Smooth inertial wheel scrolling (desktop mouse only) */
   if(finePointer && !reduce){
-    var root=doc.documentElement; root.classList.add("smooth");
-    var target=window.scrollY, current=window.scrollY, running=false, lastSet=-1;
-    function maxY(){ return root.scrollHeight - window.innerHeight; }
-    function loop(){
-      current += (target-current)*0.12;
-      if(Math.abs(target-current)<0.5){ current=target; running=false; }
-      lastSet=Math.round(current); window.scrollTo(0,current);
-      if(running) requestAnimationFrame(loop);
-    }
-    window.addEventListener("wheel",function(e){
-      if(e.ctrlKey || e.defaultPrevented) return;
-      var el=e.target; // let inner scrollable areas scroll natively
-      while(el && el!==doc.body){ var st=getComputedStyle(el); if(/(auto|scroll)/.test(st.overflowY) && el.scrollHeight>el.clientHeight) return; el=el.parentElement; }
-      e.preventDefault();
-      var d=e.deltaY*(e.deltaMode===1?40:e.deltaMode===2?window.innerHeight:1);
-      if(!running){ target=current=window.scrollY; }
-      target=Math.max(0,Math.min(maxY(),target+d));
-      if(!running){ running=true; requestAnimationFrame(loop); }
-    },{passive:false});
-    // keyboard, scrollbar drag, anchor jumps: resync so we never fight native scrolling
-    window.addEventListener("scroll",function(){ if(!running || Math.abs(window.scrollY-lastSet)>2){ if(!running){ target=current=window.scrollY; } } },{passive:true});
-    doc.addEventListener("click",function(e){
-      var a=e.target.closest && e.target.closest('a[href^="#"]:not([href="#"])');
-      if(a && !body.classList.contains("spa")){ var t=doc.querySelector(a.getAttribute("href")); if(t){ e.preventDefault(); if(!running){ target=current=window.scrollY; } target=Math.min(maxY(),t.getBoundingClientRect().top+window.scrollY-90); if(!running){ running=true; requestAnimationFrame(loop);} } }
-    });
-    window.__svScrollTo=function(y){ if(!running){ target=current=window.scrollY; } target=Math.max(0,Math.min(maxY(),y)); if(!running){ running=true; requestAnimationFrame(loop);} };
-  }
-
-  if(finePointer && !reduce){
-    /* Cursor glow that trails the pointer */
-    var glow=doc.createElement("div"); glow.className="cursor-glow"; glow.setAttribute("aria-hidden","true"); body.appendChild(glow);
-    var gx=innerWidth/2, gy=innerHeight/3, tx=gx, ty=gy, gRun=false;
-    function gLoop(){ gx+=(tx-gx)*0.09; gy+=(ty-gy)*0.09; glow.style.transform="translate3d("+gx.toFixed(1)+"px,"+gy.toFixed(1)+"px,0)"; if(Math.abs(tx-gx)+Math.abs(ty-gy)>0.5) requestAnimationFrame(gLoop); else gRun=false; }
-    doc.addEventListener("pointermove",function(e){ tx=e.clientX; ty=e.clientY; glow.classList.add("on"); if(!gRun){ gRun=true; requestAnimationFrame(gLoop);} },{passive:true});
-    doc.addEventListener("pointerleave",function(){ glow.classList.remove("on"); });
-
     /* Magnetic buttons */
     doc.querySelectorAll(".btn-primary,.nav-cta,.btn-wa,.btn-ghost").forEach(function(b){
       b.classList.add("magnetic");
