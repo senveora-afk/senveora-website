@@ -159,3 +159,17 @@
   .mf{padding:12px 8px;gap:2px}
   .mf-a{flex-basis:12px}
 }
+
+/* ---------- Hero: what we do (offer tiles) ---------- */
+.eg-offers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:-6px 0 24px}
+.eg-offer{padding:14px 12px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line-2)}
+.eg-offer span{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--grad);color:#fff;margin-bottom:10px;box-shadow:0 10px 24px -10px rgba(107,99,255,.9)}
+.eg-offer span .i{width:17px;height:17px}
+.eg-offer b{display:block;color:#fff;font-weight:600;font-size:.86rem}
+.eg-offer small{display:block;color:var(--muted);font-size:.72rem;margin-top:2px;line-height:1.4}
+.reveal.in .eg-offer{animation:egShow .45s var(--ease) both;animation-delay:calc(.1s + var(--i) * .12s)}
+@media (max-width:560px){
+  .eg-offers{grid-template-columns:1fr}
+  .eg-offer{display:grid;grid-template-columns:34px 1fr;column-gap:12px;align-items:center}
+  .eg-offer span{grid-row:span 2;margin:0}
+}
