@@ -1,0 +1,161 @@
+/* =====================================================================
+   Visuals — product illustrations built in the site's existing theme.
+   Loaded after styles.css / home.css on every page.
+   Animations run once, when the surrounding .reveal gets .in.
+   ===================================================================== */
+
+/* ---------- Hero: example engagement panel ---------- */
+.eg{position:relative;max-width:540px;margin:0 auto}
+.eg-glow{position:absolute;inset:-8% -6%;border-radius:50%;background:radial-gradient(circle at 60% 40%,rgba(107,99,255,.38) 0%,rgba(46,107,255,.14) 38%,transparent 68%);pointer-events:none}
+.eg-panel{position:relative;padding:26px;border-radius:26px;background:linear-gradient(160deg,rgba(20,28,72,.92),rgba(8,12,34,.96));border:1px solid var(--line-2);box-shadow:0 40px 90px -40px rgba(0,0,0,.95),inset 0 1px 0 rgba(255,255,255,.06)}
+.eg-head{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.78rem;color:var(--muted)}
+.eg-live{display:inline-flex;align-items:center;gap:8px}
+.eg-live i{width:8px;height:8px;border-radius:50%;background:#34D399;box-shadow:0 0 0 4px rgba(52,211,153,.15)}
+.eg-tag{padding:4px 10px;border-radius:999px;border:1px solid rgba(160,120,255,.45);color:#C9C3FF;font-weight:600;font-size:.72rem}
+.eg-result{margin:18px 0 22px}
+.eg-result span{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.eg-result b{display:block;font-family:var(--font-display);font-weight:600;color:#fff;font-size:1.06rem;line-height:1.35}
+
+/* pipeline */
+.eg-pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-bottom:24px}
+.eg-step{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.72rem;color:var(--muted);text-align:center}
+.eg-step+.eg-step::before{content:"";position:absolute;top:20px;right:calc(50% + 22px);width:calc(100% - 44px);height:2px;background:rgba(160,170,255,.16);border-radius:2px}
+.eg-step+.eg-step::after{content:"";position:absolute;top:20px;right:calc(50% + 22px);width:calc(100% - 44px);height:2px;background:var(--grad);border-radius:2px;transform:scaleX(0);transform-origin:left}
+.eg-node{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:#0E1640;border:1px solid rgba(160,170,255,.24);color:#8E95B8;transition:background .4s,border-color .4s,color .4s,box-shadow .4s}
+.eg-node .i{width:18px;height:18px}
+
+/* meter */
+.eg-meter{margin-bottom:22px}
+.eg-track{position:relative;height:12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.eg-fill{position:absolute;left:0;top:0;bottom:0;width:22%;border-radius:inherit;background:var(--grad);box-shadow:0 0 18px -2px rgba(107,99,255,.8)}
+.eg-mark{position:absolute;top:-6px;bottom:-6px;width:2px;border-radius:2px;background:rgba(237,240,250,.55)}
+.eg-mark.target{background:#fff}
+.eg-scale{position:relative;height:18px;margin-top:8px;font-size:.72rem;color:var(--muted)}
+.eg-scale span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.eg-scale .t{color:#fff;font-weight:600}
+
+/* fee split */
+.eg-fee{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.eg-seg{position:relative;padding:12px 14px;border-radius:14px;border:1px solid var(--line-2);background:rgba(255,255,255,.04);overflow:hidden}
+.eg-seg b{display:flex;align-items:center;gap:7px;color:#fff;font-weight:600;font-size:.86rem}
+.eg-seg b .i{width:15px;height:15px}
+.eg-seg small{display:block;font-size:.72rem;color:var(--muted);margin-top:3px}
+.eg-seg.base b .i{color:#34D399}
+.eg-seg.bonus{border-style:dashed;border-color:rgba(160,120,255,.45)}
+.eg-seg.bonus b .i{color:#C9C3FF}
+.eg-seg .eg-swap{display:grid}.eg-swap>span{grid-area:1/1}.eg-swap .on{opacity:0;color:#C9C3FF}
+.eg-seg.bonus::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(46,107,255,.28),rgba(160,107,255,.32));opacity:0}
+
+/* the one orchestrated sequence */
+.reveal.in .eg-step .eg-node{animation:egNode .5s var(--ease) both;animation-delay:calc(.25s + var(--i) * .28s)}
+.reveal.in .eg-step+.eg-step::after{animation:egLine .3s ease-out both;animation-delay:calc(.1s + var(--i) * .28s)}
+.reveal.in .eg-fill{animation:egFill 1.6s cubic-bezier(.16,1,.3,1) 1.75s both}
+.reveal.in .eg-mark.target{animation:egPing .6s ease-out 3.2s both}
+.reveal.in .eg-seg.bonus{animation:egBonus .5s ease-out 3.25s both}
+.reveal.in .eg-seg.bonus::before{animation:egFade .6s ease-out 3.25s both}
+.reveal.in .eg-swap .off{animation:egOut .3s ease-out 3.25s both}
+.reveal.in .eg-swap .on{animation:egShow .4s ease-out 3.3s both}
+@keyframes egNode{to{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 10px 26px -8px rgba(107,99,255,.9)}}
+@keyframes egLine{to{transform:scaleX(1)}}
+@keyframes egFill{from{width:22%}to{width:84%}}
+@keyframes egPing{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
+@keyframes egBonus{to{border-style:solid;border-color:rgba(160,120,255,.8)}}
+@keyframes egFade{to{opacity:1}}
+@keyframes egOut{to{opacity:0}}
+@keyframes egShow{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* final state without motion */
+.js-off .eg-node,
+.reduce-motion .eg-node{background:var(--grad);border-color:transparent;color:#fff}
+@media (prefers-reduced-motion:reduce){
+  .eg *{animation:none!important}
+  .eg-node{background:var(--grad);border-color:transparent;color:#fff}
+  .eg-step+.eg-step::after{transform:none}
+  .eg-fill{width:84%}
+  .eg-seg.bonus{border-style:solid}
+  .eg-seg.bonus::before{opacity:1}
+  .eg-swap .off{opacity:0}
+  .eg-swap .on{opacity:1}
+}
+.js-off .eg-step+.eg-step::after{transform:none}
+.js-off .eg-fill{width:84%}
+.js-off .eg-swap .off{opacity:0}
+.js-off .eg-swap .on{opacity:1}
+
+/* ---------- Services: GenAI assistant ---------- */
+.ga{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.ga-q,.ga-a{max-width:88%;padding:13px 16px;border-radius:18px;font-size:.88rem;line-height:1.55}
+.ga-q{align-self:flex-end;background:rgba(255,255,255,.07);border:1px solid var(--line-2);color:#E4E8F6;border-bottom-right-radius:6px}
+.ga-a{align-self:flex-start;background:linear-gradient(160deg,rgba(46,107,255,.16),rgba(160,107,255,.12));border:1px solid rgba(160,120,255,.38);color:#EDF0FA;border-bottom-left-radius:6px}
+.ga-who{display:flex;align-items:center;gap:7px;font-size:.72rem;color:#C9C3FF;font-weight:600;margin-bottom:6px}
+.ga-who .i{width:14px;height:14px}
+.ga-src{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ga-src span{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:rgba(5,8,23,.5);border:1px solid var(--line-2);font-size:.72rem;color:#C7CDE3}
+.ga-src .i{width:13px;height:13px;color:#9C95FF}
+.ga-evals{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+.ga-evals span{display:flex;align-items:center;gap:7px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:.74rem;color:#C7CDE3}
+.ga-evals .i{width:15px;height:15px;color:#34D399;flex:none}
+.reveal.in .ga-q{animation:egShow .45s var(--ease) .2s both}
+.reveal.in .ga-a{animation:egShow .5s var(--ease) .75s both}
+.reveal.in .ga-evals span{animation:egShow .4s var(--ease) both;animation-delay:calc(1.3s + var(--i) * .15s)}
+
+/* ---------- Services: MLOps rollout strip ---------- */
+.ro{margin-top:6px;padding:14px 16px;border-radius:16px;background:rgba(5,8,23,.5);border:1px solid var(--line-2)}
+.ro-top{display:flex;justify-content:space-between;gap:12px;font-size:.75rem;color:var(--muted);margin-bottom:10px}
+.ro-top b{color:#fff;font-weight:600}
+.ro-bar{display:grid;grid-template-columns:1fr 2fr 3fr;gap:4px}
+.ro-bar span{position:relative;height:8px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}
+.ro-bar span::after{content:"";position:absolute;inset:0;background:var(--grad);transform:scaleX(0);transform-origin:left}
+.ro-lbl{display:grid;grid-template-columns:1fr 2fr 3fr;gap:4px;margin-top:6px;font-size:.68rem;color:var(--muted)}
+.ro-foot{display:flex;align-items:center;gap:7px;margin-top:10px;font-size:.72rem;color:#C7CDE3}
+.ro-foot .i{width:14px;height:14px;color:#34D399}
+.reveal.in .ro-bar span::after{animation:egLine .7s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(.5s + var(--i) * .5s)}
+
+/* ---------- Services: workflow run ---------- */
+.wf{position:relative;margin-top:22px;display:grid;gap:10px}
+.wf::before{content:"";position:absolute;left:19px;top:18px;bottom:18px;width:2px;background:linear-gradient(180deg,rgba(107,99,255,.7),rgba(46,107,255,.25))}
+.wf-row{position:relative;display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:8px 12px 8px 0}
+.wf-ic{position:relative;z-index:1;width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:#0E1640;border:1px solid rgba(160,170,255,.3);color:#fff}
+.wf-ic .i{width:18px;height:18px}
+.wf-row p{margin:0;font-size:.86rem;color:#E4E8F6;line-height:1.4}
+.wf-st{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.wf-st .i{width:13px;height:13px}
+.wf-st.done{color:#34D399;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3)}
+.wf-st.wait{color:#FFC857;background:rgba(255,200,87,.1);border:1px solid rgba(255,200,87,.35)}
+.wf-row.human .wf-ic{background:rgba(255,200,87,.12);border-color:rgba(255,200,87,.45);color:#FFC857}
+.wf-foot{display:flex;align-items:center;gap:8px;margin-top:6px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:.76rem;color:#C7CDE3}
+.wf-foot .i{width:15px;height:15px;color:#9C95FF}
+.reveal.in .wf-row{animation:egShow .4s var(--ease) both;animation-delay:calc(.2s + var(--i) * .22s)}
+.reveal.in .wf-row.human .wf-st{animation:wfPulse 1.8s ease-in-out 1.6s 3}
+@keyframes wfPulse{50%{box-shadow:0 0 0 6px rgba(255,200,87,.12)}}
+
+/* ---------- Work: mini flow diagrams ---------- */
+.mf{display:flex;align-items:center;gap:6px;margin-bottom:6px;padding:14px;border-radius:16px;background:rgba(5,8,23,.45);border:1px solid var(--line)}
+.mf-n{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:.7rem;color:var(--muted);text-align:center}
+.mf-n span{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#0E1640;border:1px solid rgba(160,170,255,.28);color:#C9C3FF}
+.mf-n .i{width:17px;height:17px}
+.mf-n.hl span{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 10px 24px -10px rgba(107,99,255,.9)}
+.mf-n.hl{color:#fff;font-weight:600}
+.mf-a{flex:0 0 22px;height:2px;margin-bottom:20px;background:repeating-linear-gradient(90deg,rgba(139,92,246,.8) 0 5px,transparent 5px 9px);background-size:18px 2px;animation:pipeflow 1.2s linear infinite}
+@keyframes pipeflow{to{background-position:18px 0}}
+
+/* ---------- Tech strip logos ---------- */
+.tech .tl{width:18px;height:18px;flex:none;fill:currentColor;opacity:.9}
+
+/* ---------- About: monogram avatars ---------- */
+.avatar{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-weight:600;font-size:1.25rem;color:#fff;background:#0E1640;position:relative}
+.avatar::before{content:"";position:absolute;inset:-3px;border-radius:50%;padding:3px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+
+/* ---------- Responsive ---------- */
+@media (max-width:560px){
+  .eg-panel{padding:20px}
+  .eg-step{font-size:.64rem}
+  .eg-node{width:34px;height:34px;border-radius:11px}
+  .eg-step+.eg-step::before,.eg-step+.eg-step::after{top:17px;right:calc(50% + 19px);width:calc(100% - 38px)}
+  .eg-fee{grid-template-columns:1fr}
+  .ga-evals{grid-template-columns:1fr}
+  .wf-row{grid-template-columns:40px 1fr}
+  .wf-st{grid-column:2;justify-self:start}
+  .mf{padding:12px 8px;gap:2px}
+  .mf-a{flex-basis:12px}
+}

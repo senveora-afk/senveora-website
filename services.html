@@ -24,6 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/visuals.css">
 </head>
 <body class=" js-off">
 <div class="bg-fx" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="noise"></div></div>
@@ -81,14 +82,19 @@
       <div class="visual">
         <div class="win-bar"><i></i><i></i><i></i></div>
         <div class="v-title">GenAI assistant</div>
-        <div class="v-sub">Answer quality · release over release</div>
-        <div class="bars">
-          <span style="height:38%;animation-delay:.05s"></span><span style="height:52%;animation-delay:.1s"></span><span style="height:46%;animation-delay:.15s"></span><span style="height:64%;animation-delay:.2s"></span><span style="height:58%;animation-delay:.25s"></span><span style="height:76%;animation-delay:.3s"></span><span style="height:70%;animation-delay:.35s"></span><span style="height:92%;animation-delay:.4s"></span>
-        </div>
-        <div class="kpis">
-          <div class="kpi"><b class="grad-text">RAG</b><span>Your data</span></div>
-          <div class="kpi"><b class="grad-text">Evals</b><span>Every release</span></div>
-          <div class="kpi"><b class="grad-text">SaaS</b><span>Ready</span></div>
+        <div class="v-sub">Answers from your documents, checked on every release</div>
+        <div class="ga">
+          <div class="ga-q">Can customers on the annual plan get a refund after two weeks?</div>
+          <div class="ga-a">
+            <div class="ga-who"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13v1M15 13v1"/></svg>Assistant</div>
+            Yes. Annual plans can be refunded in full within 30 days of purchase, so two weeks is covered. The refund goes back to the original payment method.
+            <div class="ga-src"><span><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Refund policy, page 2</span><span><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Billing FAQ</span></div>
+          </div>
+          <div class="ga-evals">
+            <span style="--i:0"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Grounded in sources</span>
+            <span style="--i:1"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Safety checks passed</span>
+            <span style="--i:2"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Within cost budget</span>
+          </div>
         </div>
       </div>
     </div>
@@ -128,6 +134,12 @@
           <div class="node" style="left:82.5%;top:23%"><div class="nb"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H7a5 5 0 1 1 1.02-9.9A6 6 0 0 1 19.5 11a4 4 0 0 1-2 8z"/></svg></div>Serve</div>
           <div class="node" style="left:82.5%;top:77%"><div class="nb"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>Monitor</div>
         </div>
+      <div class="ro">
+          <div class="ro-top"><span>Rollout, <b>model v13</b></span><span>Evals passed</span></div>
+          <div class="ro-bar"><span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span></div>
+          <div class="ro-lbl"><span>Canary</span><span>Half of traffic</span><span>Everyone</span></div>
+          <div class="ro-foot"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Rolls back automatically if quality drops</div>
+        </div>
       </div>
     </div>
   </div>
@@ -150,23 +162,17 @@
     </div>
     <div class="reveal" style="--d:.1s">
       <div class="visual">
-        <div class="browser">
-          <div class="url"><span>ops.yourcompany.com / automations</span></div>
-          <div class="bd">
-            <div class="side-sk"><div class="sk g"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
-            <div class="main-sk">
-              <div class="erp-row">
-                <div class="sk g">Workflows<b>Running</b></div>
-                <div class="sk">Hours<b>Saved</b></div>
-                <div class="sk">Reports<b>Automatic</b></div>
-              </div>
-              <div class="bars" style="height:110px;margin-top:4px">
-                <span style="height:40%"></span><span style="height:62%"></span><span style="height:50%"></span><span style="height:78%"></span><span style="height:66%"></span><span style="height:88%"></span>
-              </div>
-              <div class="table-sk"><div class="sk"></div><div class="sk" style="width:86%"></div><div class="sk" style="width:92%"></div></div>
-            </div>
-          </div>
+        <div class="win-bar"><i></i><i></i><i></i></div>
+        <div class="v-title">Invoice workflow</div>
+        <div class="v-sub">Runs on its own, asks a person when it matters</div>
+        <div class="wf">
+          <div class="wf-row" style="--i:0"><span class="wf-ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><p>Invoice arrives by email</p><span class="wf-st done"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Done</span></div>
+          <div class="wf-row" style="--i:1"><span class="wf-ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13v1M15 13v1"/></svg></span><p>AI reads it and extracts the details</p><span class="wf-st done"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Done</span></div>
+          <div class="wf-row" style="--i:2"><span class="wf-ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><p>Matched against the purchase order</p><span class="wf-st done"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Done</span></div>
+          <div class="wf-row" style="--i:3"><span class="wf-ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span><p>Accounting system updated</p><span class="wf-st done"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Done</span></div>
+          <div class="wf-row human" style="--i:4"><span class="wf-ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></span><p>Manager approves payments over the limit</p><span class="wf-st wait"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Waiting</span></div>
         </div>
+        <div class="wf-foot"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Measured on hours saved each month</div>
       </div>
     </div>
   </div>
