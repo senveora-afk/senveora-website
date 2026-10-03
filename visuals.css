@@ -173,3 +173,6 @@
   .eg-offer{display:grid;grid-template-columns:34px 1fr;column-gap:12px;align-items:center}
   .eg-offer span{grid-row:span 2;margin:0}
 }
+
+/* ---------- Hero motto headline ---------- */
+.hero h1.motto{font-size:clamp(2rem,3.2vw,2.75rem);line-height:1.12}
